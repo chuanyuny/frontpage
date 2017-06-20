@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>资源库文章</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {margin:0;padding:0;list-style:none;}
+        a,a:hover {text-decoration: none;}
+        html, body, .wrap { height:100%; }
+        .wrap {height:auto;min-height:100%;_height:100%; }
+        .main { padding-bottom:56px; }
+        .container_sh {position:relative;background:#fff;overflow:hidden;padding:20px 10em 0 10em;}
+        .navbar-brand-sh {padding:0px;height:50px;}
+        .nav-sh {background: #2399cb;padding: 11.5px 10em; border:0;margin-bottom:0;}
+        .navbar-collapse-sh {float:right;}
+        .navbar-nav-sh {padding:5px 0;}
+        .navbar-nav-sh li a {padding:10px 25px;color:#333;}
+        .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {color: #fff;background: none;border:1px solid #fff;}
+        .navbar-inverse .navbar-nav-sh>li>a {color:#fff;}
+        .navbar-inverse .navbar-nav-sh>li>a:focus, .navbar-inverse .navbar-nav-sh>li>a:hover {color:#fff;}
+        .navbar-inverse .navbar-nav-sh>.active>a {border: 1px solid #fff;border-radius: 6px;}
+        .navbar-inverse .navbar-toggle-sh {border:1px solid  #ccc;}
+        .nav-sh .navbar-toggle-sh:focus,.nav-sh .navbar-toggle-sh:hover {background-color: transparent;border:1px solid #ccc; }
+        .navbar-inverse .navbar-toggle-sh .icon-bar {background-color: #ccc; }
+        @media (max-width: 767px){
+            .navbar-inverse .navbar-collapse-sh {
+                float: none;
+            }
+            .navbar-inverse .navbar-nav-sh>li>a {text-align:center;}
+        }
+        .footer_sh {position:relative;margin-top:-56px;text-align: center;padding: 5px 0;color: #fff;background: #2399cb;}
+        .footer_sh > p {margin: 2px 0;}
+        .footer_sh > p a, .footer_sh > p span {padding-left: 7px;}
+        .footer_sh a {color: #fff;}
+
+
+        #wrapper {
+            position:relative;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+            padding-left: 0;
+            transition: all 0.5s ease;
+        }
+        #wrapper.toggled #sidebar-wrapper {
+            width: 250px;
+        }
+        #wrapper.toggled #page-content-wrapper {
+            margin-right: -220px;
+        }
+        #sidebar-wrapper {
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+            background: #f1f1f1;
+            height: 100%;
+            position:relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+            transition: all 0.5s ease;
+            width: 0;
+            z-index: 1000;
+         /*   padding-bottom: 9999px;
+            margin-bottom: -9999px;*/
+            border:none;
+        }
+        #sidebar-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        .page-content_sh {margin-left:280px;padding-right:40px;padding-bottom:20px;}
+        .sidebar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar-nav li {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+
+        }
+        .sidebar-nav .dropdown-toggle {position:relative;font-size:18px;padding:17px 0 17px 44px;border-top:1px solid #d4d4d4;}
+        .sidebar-nav .dropdown-toggle.active,
+        .sidebar-nav .dropdown-toggle.active:focus,
+        .sidebar-nav .dropdown-toggle.active:hover
+        {background:#2399cb;color:#fff;}
+        .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {border-color:#d4d4d4;}
+        .sidebar-nav .dropdown-toggle.active .triangle_sh {display:block;}
+        .sidebar-nav li a {
+            color: #333;
+            display: block;
+            text-decoration: none;
+        }
+        .sidebar-nav .dropdown-menu {
+            background-color: #f1f1f1;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+            margin: 0;
+            padding:0;
+            position: relative;
+            width: 100%;
+            padding:0 20px;
+        }
+        .sidebar-nav .dropdown-menu>li>a {padding:0;padding:14px 0;
+            border-top:1px solid #d4d4d4;text-align: center;}
+        .sidebar-nav .dropdown-menu>li>a.active,
+        .sidebar-nav .dropdown-menu>li>a:hover,
+        .sidebar-nav .dropdown-menu>li>a:active,
+        .sidebar-nav .dropdown-menu>li>a:focus
+        {color:#2399cb;}
+        .sidebar-nav > .sidebar-brand {
+            font-size: 20px;
+            height: 65px;
+            line-height: 44px;
+        }
+
+
+        .triangle_sh{
+            display:none;
+            width:0;
+            height:0;
+            border-width:8px 12px 8px 0;
+            border-style:solid;
+            border-color:transparent #fff transparent transparent;
+            position:absolute;
+            top:50%;
+            right:0px;
+            margin-top:-6px;
+        }
+        .triangle_sh em{
+            display:block;
+            width:0;
+            height:0;
+            border-width:8px 12px 8px 0;
+            border-style:solid;
+            border-color:transparent #fff transparent transparent;
+            position:absolute;
+            top:-8px;
+            left:1px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="main">
+        <nav class="navbar navbar-inverse  nav-sh" role="navigation" id="menu-nav">
+            <div class="navbar-header">
+                <button class="navbar-toggle navbar-toggle-sh" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="home.html" class="navbar-brand navbar-brand-sh">
+                    <img src="image/logo2.jpeg" />
+                </a>
+            </div>///
+            <div class="collapse navbar-collapse navbar-responsive-collapse navbar-collapse-sh">
+                <ul class="nav navbar-nav navbar-nav-sh">
+                    <li><a href="home.html">首页</a ></li>
+                    <li><a href="use_online.html">在线使用</a ></li>
+                    <li class="active"><a href="demo_article.html">资源库</a ></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container_sh">
+            <div id="wrapper" class="toggled clearfix">
+                <nav class="navbar navbar-inverse pull-left" id="sidebar-wrapper" role="navigation">
+                    <ul class="nav sidebar-nav">
+                        <li class="dropdown open">
+                            <a href="javascript:void(0)" class="dropdown-toggle active" data-toggle="dropdown"  aria-expanded="true" style="border-top:none;">Spark<span class="triangle_sh"><em></em></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="javascript:void(0)" class="active" article-target="spark1">Spark1</a></li>
+                                <li><a href="javascript:void(0)" article-target="spark2">Spark2</a></li>
+                                <li><a href="javascript:void(0)" article-target="spark3">Spark3</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Hadoop<span class="triangle_sh"><em></em></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="javascript:void(0)" article-target="Hadoop1">Hadoop1</a></li>
+                                <li><a href="javascript:void(0)" article-target="Hadoop2">Hadoop2</a></li>
+                                <li><a href="javascript:void(0)" article-target="Hadoop3">Hadoop3</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Python<span class="triangle_sh"><em></em></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="javascript:void(0)" article-target="Python1">Python1</a></li>
+                                <li><a href="javascript:void(0)" article-target="Python2">Python2</a></li>
+                                <li><a href="javascript:void(0)" article-target="Python3">Python3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="page-content_sh">
+                    <div class="row">
+                        <div class="col-lg-12 page_cont">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer_sh">
+    <p><span>Copyright</span><span>&copy;</span><span>2017</span><a href="home.html">PrinceTechs IIC.</a><span>北京至信普林科技有限公司</span></p>
+    <p><a href="http://www.miibeian.gov.cn/" target="_blank">备案号:京ICP备14044447号-3</a></p>
+</footer>
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    (function(){
+        $(document).ready(function () {
+            var target_first = $(".sidebar-nav .dropdown-menu>li>a.active").attr("article-target");
+            $(".page_cont").load(target_first+'.html');
+            $(".sidebar-nav .dropdown-menu>li>a").on("click",function(e){
+                $(".sidebar-nav .dropdown-menu>li>a").removeClass("active");
+                $(this).addClass("active");
+                $(".dropdown .dropdown-toggle").removeClass("active");
+                $(this).closest(".dropdown").find(".dropdown-toggle").addClass("active");
+                e.stopPropagation();
+                $(".page_cont").load($(this).attr("article-target")+'.html');
+            });
+
+        });
+    })();
+</script>
+</body>
+</html>

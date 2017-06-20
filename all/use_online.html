@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>在线使用</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {margin:0;padding:0;list-style:none;}
+        a,a:hover {text-decoration: none;}
+        html, body, .wrap { height:100%; }
+        .wrap {height:auto;min-height:100%;_height:100%; }
+        .main { padding-bottom:56px; }
+        .container_sh {position:relative;background:#fff;overflow:hidden;padding:20px 10em 0 10em;}
+        .navbar-brand-sh {padding:0px;height:50px;}
+        .nav-sh {background: #2399cb;padding: 11.5px 10em; border:0;margin-bottom:0;}
+        .navbar-collapse-sh {float:right;}
+        .navbar-nav-sh {padding:5px 0;}
+        .navbar-nav-sh li a {padding:10px 25px;color:#333;}
+        .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {color: #fff;background: none;border:1px solid #fff;}
+        .navbar-inverse .navbar-nav-sh>li>a {color:#fff;}
+        .navbar-inverse .navbar-nav-sh>li>a:focus, .navbar-inverse .navbar-nav-sh>li>a:hover {color:#fff;}
+        .navbar-inverse .navbar-nav-sh>.active>a {border: 1px solid #fff;border-radius: 6px;}
+        .navbar-inverse .navbar-toggle-sh {border:1px solid  #ccc;}
+        .nav-sh .navbar-toggle-sh:focus,.nav-sh .navbar-toggle-sh:hover {background-color: transparent;border:1px solid #ccc; }
+        .navbar-inverse .navbar-toggle-sh .icon-bar {background-color: #ccc; }
+        @media (max-width: 767px){
+            .navbar-inverse .navbar-collapse-sh {
+                float: none;
+            }
+            .navbar-inverse .navbar-nav-sh>li>a {text-align:center;}
+        }
+        .footer_sh {position:relative;margin-top:-56px;text-align: center;padding: 5px 0;color: #fff;background: #2399cb;}
+        .footer_sh > p {margin: 2px 0;}
+        .footer_sh > p a, .footer_sh > p span {padding-left: 7px;}
+        .footer_sh a {color: #fff;}
+
+
+        .reference_sh ul li {margin-bottom:10px;}
+
+        .reference_sh .button{display:block;max-width:120px;height:40px;line-height:40px;border:1px solid #2399cb;border-radius:6px;text-align:center;box-sizing:border-box;-webkit-box-sizing:border-box;-o-box-sizing:border-box;-moz-box-sizing:border-box;margin:0 auto;font-size:14px;text-decoration:none;color:#2399cb;-moz-transition:ease 0.4s;-o-transition:ease 0.4s;-webkit-transition:ease 0.4s;transition:ease 0.4s;position:relative;cursor:pointer;}
+        .reference_sh .button.active {background:#2399cb;color:#fff;}
+        /*.reference_sh .button:hover{border:1px solid #2399cb;color:#2399cb;}
+        .reference_sh .button .line{position:absolute;background:none;-moz-transition:ease 0.4s;-o-transition:ease 0.4s;-webkit-transition:ease 0.4s;transition:ease 0.4s;}
+        .reference_sh .button:hover .line{background:#2399cb;}
+        .reference_sh .button .line-top{width:0px;height:1px;left:-110%;top:-1px;}
+        .reference_sh .button:hover .line-top{width:100%;left:-1px;}
+        .reference_sh .button .line-right{width:1px;height:0px;right:-1px;top:-110%;}
+        .reference_sh .button:hover .line-right{height:100%; top:-1px;}
+        .reference_sh .button .line-bottom{width:1px;height:0px;left:-1px;bottom:-110%;}
+        .button:hover .line-bottom{height:100%;bottom:-1px;}
+        .reference_sh .button .line-left{width:0px;height:1px;right:-110%;bottom:-1px;}
+        .reference_sh .button:hover .line-left{width:100%;right:-1px;}*/
+
+        .iframe_box {height:500px;overflow-y:auto;}
+
+        .data_detail_sh {position:fixed;left:0;bottom:0;z-index:999;width:100%;border-top:1px solid #ccc;background: #fff;padding:0 40px 20px;}
+        .data_detail_sh .glyphicon-remove {position:absolute;right:10px;top:10px;}
+        .data_detail_sh .data_each {display:none;}
+        .data_detail_sh .data_each.active {display:block;}
+        .table-box,.title {padding:0;float:left;}
+        .table-box {width:90%;}
+        .title {padding-right:5px;}
+        .table-box table th, .table-box table td{border:1px solid #ccc;padding:6px 15px; text-align:center;background:#fff;white-space:nowrap;}
+        .table-box table{border-collapse:collapse;}
+        .table_left {display:inline;float:left;}
+        .data_item_sh {line-height:40px;}
+        .data_item_sh span {margin-right:20px;font-weight:bold;}
+        .data_item_sh span em {color:#2399cb;font-style:normal;padding-left:4px;font-weight:normal;}
+        .data_box {max-width:90%;overflow-x:auto;border-right:1px solid #ccc;}
+        .data_box table {width:100%;}
+        .data_box table td {min-width: 190px;}
+        .data_box table tr td:first-child {border-left:none;}
+        .data_box table tr td:last-child {border-right:none;}
+        .data_detail_sh .glyphicon-remove {cursor:pointer;}
+        @media (min-width: 768px) {
+            .navbar {
+                border-radius: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="main">
+        <nav class="navbar navbar-inverse  nav-sh" role="navigation" id="menu-nav">
+            <div class="navbar-header">
+                <button class="navbar-toggle navbar-toggle-sh" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="home.html" class="navbar-brand navbar-brand-sh">
+                    <img src="image/logo2.jpeg" />
+                </a>
+            </div>
+            <div class="collapse navbar-collapse navbar-responsive-collapse navbar-collapse-sh">
+                <ul class="nav navbar-nav navbar-nav-sh">
+                    <li><a href="home.html">首页</a ></li>
+                    <li class="active"><a href="use_online.html">在线使用</a ></li>
+                    <li><a href="demo_article.html">资源库</a ></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container_sh row">
+            <div class="iframe_box col-md-9">
+                <iframe src="Home.htm" id="jupyter_sh" frameborder="0" scrolling="no" width="100%"></iframe>
+            </div>
+            <div class="reference_sh col-md-2">
+                <ul>
+                    <li>
+                        <a class="button active" href="javascript:void(0)">
+                            美国天气数据1
+                        </a>
+                    </li>
+                    <li>
+                        <a class="button" href="javascript:void(0)">
+                            美国天气数据2
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="data_detail_sh">
+    <div class="data_each active">
+        <p class="data_item_sh">
+            <span>数据描述:<em>美国2000-2016年全部气象站天气数据</em></span>
+            <span>数据位置:<em>/user/princetechs/ncdc</em></span>
+            <span>数据大小:<em>67.9(压缩文件)</em></span>
+            <span>文件格式:<em>gz</em></span>
+        </p>
+        <div class="form-group">
+            <label class="control-label text-right title">数据详情:</label>
+            <div class="table-box  clearfix">
+                <table class="table_left" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th>字段说明</th>
+                    </tr>
+                    <tr>
+                        <th>位置</th>
+                    </tr>
+                    <tr>
+                        <th>取值范围</th>
+                    </tr>
+                </table>
+                <div class="table_left data_box">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                        </tr>
+                        <tr>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                        </tr>
+                        <tr>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="data_each">
+        <p class="data_item_sh">
+            <span>数据描述:<em>美国2012-2017年全部气象站天气数据2</em></span>
+            <span>数据位置:<em>/user/princetechs/ncdc2</em></span>
+            <span>数据大小:<em>78.2(压缩文件)</em></span>
+            <span>文件格式:<em>csv</em></span>
+        </p>
+        <div class="form-group">
+            <label class="control-label text-right title">数据详情:</label>
+            <div class="table-box  clearfix">
+                <table class="table_left" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th>字段说明</th>
+                    </tr>
+                    <tr>
+                        <th>位置</th>
+                    </tr>
+                    <tr>
+                        <th>取值范围</th>
+                    </tr>
+                </table>
+                <div class="table_left data_box">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>内容2</td>
+                            <td>内容2</td>
+                            <td>内容2</td>
+                            <td>内容2</td>
+                            <td>内容2</td>
+                            <td>内容2</td>
+                            <td>内容2</td>
+                            <td>内容2</td>
+                        </tr>
+                        <tr>
+                            <td>内容2</td>
+                            <td>内容2</td>
+                            <td>内容2</td>
+                            <td>内容2</td>
+                            <td>内容2</td>
+                            <td>内容2</td>
+                            <td>内容2</td>
+                            <td>内容2</td>
+                        </tr>
+                        <tr>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                            <td>内容</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+</div>
+<footer class="footer_sh">
+    <p><span>Copyright</span><span>&copy;</span><span>2017</span><a href="home.html">PrinceTechs IIC.</a><span>北京至信普林科技有限公司</span></p>
+    <p><a href="http://www.miibeian.gov.cn/" target="_blank">备案号:京ICP备14044447号-3</a></p>
+</footer>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    var browserVersion = window.navigator.userAgent.toUpperCase();
+    var isOpera = browserVersion.indexOf("OPERA") > -1 ? true : false;
+    var isFireFox = browserVersion.indexOf("FIREFOX") > -1 ? true : false;
+    var isChrome = browserVersion.indexOf("CHROME") > -1 ? true : false;
+    var isSafari = browserVersion.indexOf("SAFARI") > -1 ? true : false;
+    var isIE = (!!window.ActiveXObject || "ActiveXObject" in window);
+    var isIE9More = (! -[1, ] == false);
+    function reinitIframe(iframeId, minHeight) {
+        try {
+            var iframe = document.getElementById(iframeId);
+            var bHeight = 0;
+            if (isChrome == false && isSafari == false)
+                bHeight = iframe.contentWindow.document.body.scrollHeight;
+
+            var dHeight = 0;
+            if (isFireFox == true)
+                dHeight = iframe.contentWindow.document.documentElement.offsetHeight + 2;
+            else if (isIE == false && isOpera == false)
+                dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+            else if (isIE == true && isIE9More) {//ie9+
+                var heightDeviation = bHeight - eval("window.IE9MoreRealHeight" + iframeId);
+                if (heightDeviation == 0) {
+                    bHeight += 3;
+                } else if (heightDeviation != 3) {
+                    eval("window.IE9MoreRealHeight" + iframeId + "=" + bHeight);
+                    bHeight += 3;
+                }
+            }
+            else//ie[6-8]、OPERA
+                bHeight += 3;
+
+            var height = Math.max(bHeight, dHeight);
+            if (height < minHeight) height = minHeight;
+            iframe.style.height = height + "px";
+        } catch (ex) { }
+    }
+    function startInit(iframeId, minHeight) {
+        eval("window.IE9MoreRealHeight" + iframeId + "=0");
+        window.setInterval("reinitIframe('" + iframeId + "'," + minHeight + ")", 100);
+    }
+    startInit('jupyter_sh', 800);
+    $(".reference_sh ul li").on("click",function(){
+        if(!$(this).find("a").hasClass("active")){
+            $(".data_detail_sh").show();
+            $(".reference_sh ul li a").removeClass("active");
+            $(this).find("a").addClass("active");
+            $(".data_detail_sh .data_each").removeClass("active");
+            $(".data_detail_sh .data_each").eq($(this).index()).addClass("active");
+        }else{
+            $(this).find("a").removeClass("active");
+            $(".data_detail_sh").hide();
+        }
+
+    });
+    $(".data_detail_sh .glyphicon-remove").on("click",function(){
+        $(this).parent().hide();
+        $(".reference_sh ul li a").removeClass("active");
+    });
+</script>
+</body>
+</html>

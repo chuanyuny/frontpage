@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>资源库</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {margin:0;padding:0;list-style:none;}
+        a,a:hover {text-decoration: none;}
+        .navbar-brand-sh {padding:10px 64px 10px 46px;}
+        .nav-sh {background: #fff;    padding: 10px 20px;
+            background-color: transparent;border:0;margin-bottom:0;}
+        .navbar-collapse-sh {float:right;}
+        .navbar-nav-sh li a {padding:10px 25px;color:#333;}
+        .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {color: #2399cb;background: none;}
+        .navbar-inverse .navbar-nav-sh>li>a {color:#2399cb;}
+        .navbar-inverse .navbar-nav-sh>li>a:focus, .navbar-inverse .navbar-nav-sh>li>a:hover {color:inherit;}
+        .navbar-inverse .navbar-nav-sh>.active>a {border: 1px solid #2399cb;border-radius: 6px;}
+        .navbar-inverse .navbar-toggle-sh {border:1px solid  #ccc;}
+        .nav-sh .navbar-toggle-sh:focus,.nav-sh .navbar-toggle-sh:hover {background-color: transparent;border:1px solid #ccc; }
+        .navbar-inverse .navbar-toggle-sh .icon-bar {background-color: #ccc; }
+        @media (max-width: 767px){
+            .navbar-inverse .navbar-collapse-sh {
+                float: none;
+            }
+            .navbar-inverse .navbar-nav-sh>li>a {text-align:center;}
+        }
+        .footer_sh {text-align: center;margin-top: 15px;padding: 5px 0;color: #fff;background: #2399cb;}
+        .footer_sh > p {margin: 2px 0;}
+        .footer_sh > p a, .footer_sh > p span {padding-left: 7px;}
+        .footer_sh a {color: #fff;}
+
+
+        .des_title {text-align: center;font-size: 30px;line-height: 120px;}
+        .visualization_area .team-item {padding: 10px 0;}
+        .visualization_area .cate-icon { width: 70%;border-radius: 4px;background: #fafafa;background: linear-gradient(0deg,#f3f3f3,#fff);border: 1px solid #f9f9f9;position: relative;margin: 0 auto;padding: 20px;text-align: center;}
+        .visualization_area .cate-icon img {width: 100%;max-width: 100px;vertical-align: middle;}
+
+        .demo_box_sh {background: #333;}
+        .demo_box_sh .thumbnail  {margin-bottom:0;padding:0;padding-top: 20px;background: inherit;border:none;}
+        /*.demo_box_sh .thumbnail>img {width: 80%;height:180px;vertical-align: middle;background: #ccc;}*/
+        .demo_box_sh .thumbnail .icon{display:block;vertical-align: middle;background: #ccc;
+            width:80%;
+            height:180px;
+            -moz-transition:ease-in 1s;
+            -o-transition:ease-in 1s;
+            -webkit-transition:ease-in 1s;
+            transition:ease-in 1s;}
+
+        .demo_box_sh .icon:hover{transform:rotateY(360deg);
+            -moz-transform:rotateY(360deg);
+            -o-transform:rotateY(360deg);
+            -webkit-transform:rotateY(360deg);}
+        .demo_box_sh .thumbnail .caption {padding:0;}
+        .demo_box_sh .link{display:inline-block; margin:20px 0; position:relative;left: 50%; margin-left: -90px;}
+        .demo_box_sh .button{display:block;width:180px;height:50px;border:2px solid rgba(255,255,255,0.8);line-height:50px;padding-left:20px;box-sizing:border-box;-webkit-box-sizing:border-box;-o-box-sizing:border-box;-moz-box-sizing:border-box;margin:0 auto; font-weight:bold; font-size:18px;text-decoration:none;font-family:Arial;color:#2DCB70;background:url(image/allow.png) no-repeat 130px center;-moz-transition:ease 0.4s;-o-transition:ease 0.4s;-webkit-transition:ease 0.4s;transition:ease 0.4s;position:relative;cursor:pointer;}
+        .demo_box_sh .button:hover{border:2px solid #2DCB70;color:#2DCB70;background-position:140px center;}
+        .demo_box_sh .button .line{position:absolute;background:none;-moz-transition:ease 0.4s;-o-transition:ease 0.4s;-webkit-transition:ease 0.4s;transition:ease 0.4s;}
+        .demo_box_sh .button:hover .line{background:#2DCB70;}
+        .demo_box_sh .button .line-top{width:0px;height:2px;left:-110%;top:-2px;}
+        .demo_box_sh .button:hover .line-top{width:100%;left:-2px;}
+        .demo_box_sh .button .line-right{width:2px;height:0px;right:-2px;top:-110%;}
+        .demo_box_sh .button:hover .line-right{height:100%; top:-2px;}
+        .demo_box_sh .button .line-bottom{width:2px;height:0px;left:-2px;bottom:-110%;}
+        .button:hover .line-bottom{height:100%;bottom:-2px;}
+        .demo_box_sh .button .line-left{width:0px;height:2px;right:-110%;bottom:-2px;}
+        .demo_box_sh .button:hover .line-left{width:100%;right:-2px;}
+        .demo_box_sh .tip{position:absolute;padding:0px 14px;height:35px;line-height:35px;background:#2DCB70;color:#fff;bottom:160px;font-size:16px;font-weight:normal; text-transform:none; margin:0 auto; opacity:0; border-radius:3px}
+        .demo_box_sh .tip em{font-style:normal;white-space: nowrap;}
+        .demo_box_sh .tip span{position:absolute;width:0;height:0;overflow:hidden;border:7px solid transparent;border-top-color:#2DCB70;left:50%;margin-left:-3px;bottom:-14px;}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse nav-sh" role="navigation" id="menu-nav">
+    <div class="navbar-header">
+        <!-- .navbar-toggle样式用于toggle收缩的内容，即nav-collapse collapse样式所在元素 -->
+        <button class="navbar-toggle navbar-toggle-sh" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <!-- 确保无论是宽屏还是窄屏，navbar-brand都显示 -->
+        <a href=" " class="navbar-brand navbar-brand-sh">数海</a >
+    </div>
+    <!-- 屏幕宽度小于768px时，div.navbar-responsive-collapse容器里的内容都会隐藏，显示icon-bar图标，当点击icon-bar图标时，再展开。屏幕大于768px时，默认显示。 -->
+    <div class="collapse navbar-collapse navbar-responsive-collapse navbar-collapse-sh">
+        <ul class="nav navbar-nav navbar-nav-sh">
+            <li><a href="home.html">首页</a ></li>
+            <li><a href="##">在线使用</a ></li>
+            <li class="active"><a href="resource_pool.html">资源库</a ></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="demo_source_sh">
+        <p class="des_title">Demo 库</p>
+        <ul class="demo_box_sh row">
+            <li class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="..." alt="..." class="icon"  />
+                    <div class="caption link mission-link">
+                       <!-- <span class="icon animated"></span>-->
+                        <a class="button" data-title="Go to spark" href="demo_article.html">
+
+                            <span class="line line-top"></span>
+
+                            <span class="line line-right"></span>
+
+                            <span class="line line-bottom"></span>
+
+                            <span class="line line-left"></span>
+                            Spark
+                        </a>
+                        <p class="tip"><em></em><span></span></p>
+                    </div>
+                </div>
+            </li>
+            <li class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="..." alt="..." class="icon" />
+                    <div class="caption link mission-link">
+                        <!-- <span class="icon animated"></span>-->
+                        <a class="button" data-title="Go to hadoop" href="demo_article.html">
+
+                            <span class="line line-top"></span>
+
+                            <span class="line line-right"></span>
+
+                            <span class="line line-bottom"></span>
+
+                            <span class="line line-left"></span>
+                            Hadoop
+                        </a>
+                        <p class="tip"><em></em><span></span></p>
+                    </div>
+                </div>
+            </li>
+            <li class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="..." alt="..." class="icon" />
+                    <div class="caption link mission-link">
+                        <!-- <span class="icon animated"></span>-->
+                        <a class="button" data-title="Go to python" href="demo_article.html">
+
+                            <span class="line line-top"></span>
+
+                            <span class="line line-right"></span>
+
+                            <span class="line line-bottom"></span>
+
+                            <span class="line line-left"></span>
+                            Python
+                        </a>
+                        <p class="tip"><em></em><span></span></p>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+    <div class="visualization_area">
+        <p class="des_title">可视化案例展示</p>
+        <div class="row">
+            <div class="team-item col-xs-4">
+                <a href="javascript:void(0)" title="">
+                    <div class="cate-icon"><img src="//cdn.hebeifc.com/img/icon/introduction.png" alt=""></div>
+                </a>
+            </div>
+            <div class="team-item col-xs-4">
+                <a href="javascript:void(0)" title="">
+                    <div class="cate-icon"><img src="//cdn.hebeifc.com/img/icon/stadium.png" alt=""></div>
+                </a>
+            </div>
+            <div class="team-item col-xs-4">
+                <a href="javascript:void(0)" title="">
+                    <div class="cate-icon"><img src="//cdn.hebeifc.com/img/icon/history.png" alt=""></div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="team-item col-xs-4">
+                <a href="javascript:void(0)" title="">
+                    <div class="cate-icon"><img src="//cdn.hebeifc.com/img/icon/player.png" alt=""></div>
+                </a>
+            </div>
+            <div class="team-item col-xs-4">
+                <a href="javascript:void(0)" title="">
+                    <div class="cate-icon"><img src="//cdn.hebeifc.com/img/icon/coach.png" alt=""></div>
+                </a>
+            </div>
+            <div class="team-item col-xs-4">
+                <a href="javascript:void(0)" title="">
+                    <div class="cate-icon"><img src="//cdn.hebeifc.com/img/icon/emblem.png" alt=""></div>
+                </a>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="team-item col-xs-4">
+                <a href="javascript:void(0)" title="">
+                    <div class="cate-icon"><img src="//cdn.hebeifc.com/img/icon/shirt.png" alt=""></div>
+                </a>
+            </div>
+            <div class="team-item col-xs-4">
+                <a href="javascript:void(0)" title="">
+                    <div class="cate-icon"><img src="//cdn.hebeifc.com/img/icon/glory.png" alt=""></div>
+                </a>
+            </div>
+            <div class="team-item col-xs-4">
+                <a href="javascript:void(0)" title="">
+                    <div class="cate-icon"><img src="//cdn.hebeifc.com/img/icon/mascot.png" alt=""></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 底部 -->
+<footer class="footer_sh">
+    <p><span>Copyright</span><span>&copy;</span><span>2017</span><a href="home.html">PrinceTechs IIC.</a><span>北京至信普林科技有限公司</span></p>
+    <p><a href="http://www.miibeian.gov.cn/" target="_blank">备案号:京ICP备14044447号-3</a></p>
+</footer>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    (function(){
+        $('.link .button').hover(function(){
+            var title=$(this).attr('data-title');
+            $(this).next('.tip').find('em').text(title);
+            var pos=$(this).position().left;
+            var dis=($('.tip').outerWidth()-$(this).outerWidth())/2;
+            var l=pos-dis;
+            $(this).next('.tip').css({'left':l+'px'}).animate({'bottom':60,'opacity':1},300);
+        },function(){
+            $(this).next('.tip').animate({'bottom':160,'opacity':0},300);
+        })
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote {
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            margin: 10px 0 15px 0;
+            border-collapse: collapse;
+        }
+        td,th {
+            border: 1px solid #ddd;
+            padding: 3px 10px;
+        }
+        th {
+            padding: 5px 10px;
+        }
+
+        a {
+            color: #0069d6;
+        }
+        a:hover {
+            color: #0050a3;
+            text-decoration: none;
+        }
+        a img {
+            border: none;
+        }
+        p {
+            margin-bottom: 9px;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #404040;
+            line-height: 36px;
+        }
+        h1 {
+            margin-bottom: 18px;
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        h3 {
+            font-size: 18px;
+        }
+        h4 {
+            font-size: 16px;
+        }
+        h5 {
+            font-size: 14px;
+        }
+        h6 {
+            font-size: 13px;
+        }
+        hr {
+            margin: 0 0 19px;
+            border: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        blockquote {
+            padding: 13px 13px 21px 15px;
+            margin-bottom: 18px;
+            font-family:georgia,serif;
+            font-style: italic;
+        }
+        blockquote:before {
+            content:"\201C";
+            font-size:40px;
+            margin-left:-10px;
+            font-family:georgia,serif;
+            color:#eee;
+        }
+        blockquote p {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 18px;
+            margin-bottom: 0;
+            font-style: italic;
+        }
+        code, pre {
+            font-family: Monaco, Andale Mono, Courier New, monospace;
+        }
+        code {
+            background-color: #fee9cc;
+            color: rgba(0, 0, 0, 0.75);
+            padding: 1px 3px;
+            font-size: 12px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+        pre {
+            display: block;
+            padding: 14px;
+            margin: 0 0 18px;
+            line-height: 16px;
+            font-size: 11px;
+            border: 1px solid #d9d9d9;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        pre code {
+            background-color: #fff;
+            color:#737373;
+            font-size: 11px;
+            padding: 0;
+        }
+        sup {
+            font-size: 0.83em;
+            vertical-align: super;
+            line-height: 0;
+        }
+        * {
+            -webkit-print-color-adjust: exact;
+        }
+    </style>
+    <title>1.HDFS操作样例</title>
+
+</head>
+<body>
+<h2>1.HDFS操作样例(Hadoop3)</h2>
+
+<blockquote><p>在Client终端中执行HDFS命令</p></blockquote>
+
+<h5>1. ls命令-显示HDFS文件系统根目录的所有文件</h5>
+
+<pre><code> hdfs dfs -ls / 或者 hadoop fs -ls /
+</code></pre>
+
+<p>终端输出内容如下，列出所有HDFS文件系统根目录的内容：</p>
+
+<pre><code>
+drwxrwxrwx - yarn hadoop 0 2017-04-10 01:43 /app-logs
+drwxr-xr-x - hdfs hdfs 0 2017-04-09 17:31 /apps
+drwxr-xr-x - yarn hadoop 0 2017-04-09 17:28 /ats
+drwxr-xr-x - mapred hdfs 0 2017-04-09 17:28 /mapred
+drwxrwxrwx - mapred hadoop 0 2017-04-09 17:28 /mr-history
+drwxr-xr-x - root root 0 2017-04-14 06:00 /root
+drwxrwxrwx - spark hadoop 0 2017-04-18 03:46 /spark-history
+drwxrwxrwx - hdfs hdfs 0 2017-04-09 17:32 /tmp
+drwxr-xr-x - hdfs hdfs 0 2017-04-10 01:40 /user
+</code></pre>
+
+<h5>2. put命令-将root用户下的文件传到HDFS文件系统中</h5>
+
+<pre><code>hdfs dfs -put /root/test.txt  /root
+</code></pre>
+
+<p>执行hdfs dfs -ls 命令查看操作结果：</p>
+
+<pre><code>hdfs dfs -ls /root/test.txt
+</code></pre>
+
+<p>终端输出内容如下, 文件已经被上传到HDFS文件系统中：</p>
+
+<pre><code>-rw-r--r-- 3 root root 22 2017-04-19 02:03 /root/test.txt
+</code></pre>
+</body>
+</html>
